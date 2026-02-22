@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>개발자 이력서 | 홍길동</title>
+  <meta name="description" content="풀스택 개발자 홍길동의 웹 이력서입니다.">
+  <meta property="og:title" content="개발자 이력서 | 홍길동">
+  <meta property="og:description" content="풀스택 개발자 홍길동의 웹 이력서입니다.">
+  <meta property="og:type" content="website">
+  <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+
+  <!-- 헤더 / 네비게이션 -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+    <nav class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+      <!-- 로고 -->
+      <a href="#hero" class="text-xl font-bold text-blue-600 dark:text-blue-400">Portfolio</a>
+
+      <!-- 데스크톱 네비게이션 -->
+      <ul class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <li><a href="#about" class="nav-link hover:text-blue-600 dark:hover:text-blue-400 transition-colors">소개</a></li>
+        <li><a href="#skills" class="nav-link hover:text-blue-600 dark:hover:text-blue-400 transition-colors">기술</a></li>
+        <li><a href="#experience" class="nav-link hover:text-blue-600 dark:hover:text-blue-400 transition-colors">경력</a></li>
+        <li><a href="#projects" class="nav-link hover:text-blue-600 dark:hover:text-blue-400 transition-colors">프로젝트</a></li>
+        <li><a href="#education" class="nav-link hover:text-blue-600 dark:hover:text-blue-400 transition-colors">학력</a></li>
+        <li><a href="#contact" class="nav-link hover:text-blue-600 dark:hover:text-blue-400 transition-colors">연락처</a></li>
+      </ul>
+
+      <div class="flex items-center gap-3">
+        <!-- 다크모드 토글 -->
+        <button id="dark-toggle" aria-label="다크모드 토글" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+          <!-- 해 아이콘 (다크모드일 때 표시) -->
+          <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+          <!-- 달 아이콘 (라이트모드일 때 표시) -->
+          <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+        </button>
+
+        <!-- 모바일 햄버거 메뉴 -->
+        <button id="menu-toggle" aria-label="메뉴 열기" class="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- 모바일 메뉴 -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+      <ul class="flex flex-col px-4 py-3 gap-3 text-sm font-medium">
+        <li><a href="#about" class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">소개</a></li>
+        <li><a href="#skills" class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">기술</a></li>
+        <li><a href="#experience" class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">경력</a></li>
+        <li><a href="#projects" class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">프로젝트</a></li>
+        <li><a href="#education" class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">학력</a></li>
+        <li><a href="#contact" class="mobile-nav-link block py-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">연락처</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 히어로 영역 -->
+  <section id="hero" class="pt-32 pb-24 px-4 md:pt-40 md:pb-32">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12">
+      <!-- 프로필 이미지 -->
+      <img src="https://picsum.photos/seed/profile/400/400" alt="프로필 이미지" class="w-40 h-40 md:w-52 md:h-52 rounded-full object-cover shadow-lg shrink-0">
+      <!-- 텍스트 정보 -->
+      <div class="text-center md:text-left">
+        <p class="text-blue-600 dark:text-blue-400 font-semibold mb-1">안녕하세요, 저는</p>
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-3">홍길동</h1>
+        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-4">풀스택 개발자</p>
+        <p class="text-gray-500 dark:text-gray-400 mb-6 max-w-lg">사용자 중심의 웹 서비스를 만드는 것을 좋아하는 개발자입니다. 깔끔한 코드와 직관적인 UI/UX를 추구합니다.</p>
+
+        <!-- SNS 링크 (기존 섹션 이동) -->
+        <div class="flex flex-wrap justify-center md:justify-start gap-4">
+          <!-- GitHub -->
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+             class="sns-icon group p-3 rounded-xl bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <svg class="w-6 h-6 fill-gray-600 dark:fill-gray-400 group-hover:fill-[#181717] dark:group-hover:fill-white transition-colors duration-300" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+             class="sns-icon group p-3 rounded-xl bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <svg class="w-6 h-6 fill-gray-600 dark:fill-gray-400 group-hover:fill-[#0A66C2] transition-colors duration-300" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <!-- X (Twitter) -->
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"
+             class="sns-icon group p-3 rounded-xl bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <svg class="w-6 h-6 fill-gray-600 dark:fill-gray-400 group-hover:fill-[#000000] dark:group-hover:fill-white transition-colors duration-300" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+            </svg>
+          </a>
+          <!-- YouTube -->
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube"
+             class="sns-icon group p-3 rounded-xl bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <svg class="w-6 h-6 fill-gray-600 dark:fill-gray-400 group-hover:fill-[#FF0000] transition-colors duration-300" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+             class="sns-icon group p-3 rounded-xl bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <svg class="w-6 h-6 fill-gray-600 dark:fill-gray-400 group-hover:fill-[#E4405F] transition-colors duration-300" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 1 1-2.88 0 1.441 1.441 0 0 1 2.88 0z"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- CTA 버튼 -->
+        <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-6">
+          <a href="#projects" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl transition-colors duration-300">프로젝트 보기</a>
+          <a href="#contact" class="px-6 py-3 border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 font-medium rounded-xl transition-colors duration-300">연락하기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 자기소개 (About) -->
+  <section id="about" class="py-16 px-4 bg-white dark:bg-gray-800">
+    <div class="max-w-5xl mx-auto fade-in">
+      <h2 class="text-3xl font-bold mb-8 text-center">소개</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4 text-blue-600 dark:text-blue-400">About Me</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+            5년 차 풀스택 개발자로, 웹 프론트엔드부터 백엔드, 클라우드 인프라까지 폭넓은 경험을 갖추고 있습니다.
+            사용자 경험을 최우선으로 생각하며, 성능과 접근성을 고려한 웹 서비스를 개발합니다.
+          </p>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            새로운 기술을 배우는 것을 즐기며, 팀과 함께 성장하는 개발 문화를 지향합니다.
+            오픈소스 기여와 기술 블로그 작성을 통해 지식을 공유하고 있습니다.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4 text-blue-600 dark:text-blue-400">개발 철학</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="text-blue-600 dark:text-blue-400 mt-1">&#10003;</span>
+              <span class="text-gray-600 dark:text-gray-400">깔끔하고 읽기 쉬운 코드를 작성합니다</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-blue-600 dark:text-blue-400 mt-1">&#10003;</span>
+              <span class="text-gray-600 dark:text-gray-400">테스트 코드로 안정성을 확보합니다</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-blue-600 dark:text-blue-400 mt-1">&#10003;</span>
+              <span class="text-gray-600 dark:text-gray-400">사용자 관점에서 문제를 해결합니다</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-blue-600 dark:text-blue-400 mt-1">&#10003;</span>
+              <span class="text-gray-600 dark:text-gray-400">지속적인 학습과 개선을 추구합니다</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 기술 스택 (Skills) -->
+  <section id="skills" class="py-16 px-4">
+    <div class="max-w-5xl mx-auto fade-in">
+      <h2 class="text-3xl font-bold mb-8 text-center">기술 스택</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- 프론트엔드 -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md">
+          <h3 class="text-lg font-semibold mb-5 text-blue-600 dark:text-blue-400">프론트엔드</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-1 text-sm"><span>HTML / CSS</span><span>90%</span></div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="progress-bar bg-blue-500 h-2.5 rounded-full" style="--progress:90%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1 text-sm"><span>JavaScript</span><span>85%</span></div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="progress-bar bg-blue-500 h-2.5 rounded-full" style="--progress:85%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1 text-sm"><span>React</span><span>80%</span></div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="progress-bar bg-blue-500 h-2.5 rounded-full" style="--progress:80%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1 text-sm"><span>TypeScript</span><span>75%</span></div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="progress-bar bg-blue-500 h-2.5 rounded-full" style="--progress:75%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 백엔드 -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md">
+          <h3 class="text-lg font-semibold mb-5 text-blue-600 dark:text-blue-400">백엔드</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-1 text-sm"><span>Node.js</span><span>80%</span></div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="progress-bar bg-green-500 h-2.5 rounded-full" style="--progress:80%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1 text-sm"><span>Python</span><span>70%</span></div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="progress-bar bg-green-500 h-2.5 rounded-full" style="--progress:70%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1 text-sm"><span>PostgreSQL</span><span>75%</span></div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="progress-bar bg-green-500 h-2.5 rounded-full" style="--progress:75%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1 text-sm"><span>REST API</span><span>85%</span></div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="progress-bar bg-green-500 h-2.5 rounded-full" style="--progress:85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 도구 -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md">
+          <h3 class="text-lg font-semibold mb-5 text-blue-600 dark:text-blue-400">도구</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-1 text-sm"><span>Git / GitHub</span><span>90%</span></div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="progress-bar bg-purple-500 h-2.5 rounded-full" style="--progress:90%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1 text-sm"><span>Docker</span><span>70%</span></div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="progress-bar bg-purple-500 h-2.5 rounded-full" style="--progress:70%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1 text-sm"><span>AWS</span><span>65%</span></div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="progress-bar bg-purple-500 h-2.5 rounded-full" style="--progress:65%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1 text-sm"><span>VS Code</span><span>95%</span></div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="progress-bar bg-purple-500 h-2.5 rounded-full" style="--progress:95%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 경력 사항 (Experience) -->
+  <section id="experience" class="py-16 px-4 bg-white dark:bg-gray-800">
+    <div class="max-w-5xl mx-auto fade-in">
+      <h2 class="text-3xl font-bold mb-8 text-center">경력 사항</h2>
+      <div class="relative">
+        <!-- 타임라인 세로선 -->
+        <div class="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-blue-200 dark:bg-blue-900"></div>
+
+        <!-- 경력 1 -->
+        <div class="relative pl-12 md:pl-0 md:w-1/2 md:pr-12 mb-12 md:ml-auto">
+          <div class="absolute left-2.5 md:left-auto md:-left-3 top-1 w-3 h-3 rounded-full bg-blue-500 ring-4 ring-blue-100 dark:ring-blue-900/50"></div>
+          <div class="bg-gray-50 dark:bg-gray-700 rounded-2xl p-6 shadow-sm">
+            <span class="text-sm text-blue-600 dark:text-blue-400 font-medium">2022.03 - 현재</span>
+            <h3 class="text-lg font-bold mt-1">(주) 테크컴퍼니</h3>
+            <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">시니어 프론트엔드 개발자</p>
+            <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1.5 list-disc list-inside">
+              <li>React 기반 대시보드 서비스 개발 및 유지보수</li>
+              <li>성능 최적화로 페이지 로딩 속도 40% 개선</li>
+              <li>주니어 개발자 멘토링 및 코드 리뷰 담당</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 경력 2 -->
+        <div class="relative pl-12 md:pl-0 md:w-1/2 md:pl-12 mb-12">
+          <div class="absolute left-2.5 md:left-auto md:-right-3 top-1 w-3 h-3 rounded-full bg-blue-500 ring-4 ring-blue-100 dark:ring-blue-900/50 md:right-auto md:left-[-7px]"></div>
+          <div class="bg-gray-50 dark:bg-gray-700 rounded-2xl p-6 shadow-sm">
+            <span class="text-sm text-blue-600 dark:text-blue-400 font-medium">2020.01 - 2022.02</span>
+            <h3 class="text-lg font-bold mt-1">(주) 스타트업허브</h3>
+            <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">풀스택 개발자</p>
+            <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1.5 list-disc list-inside">
+              <li>Node.js + React 기반 SaaS 플랫폼 개발</li>
+              <li>RESTful API 설계 및 데이터베이스 모델링</li>
+              <li>AWS 인프라 구축 및 CI/CD 파이프라인 구성</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 경력 3 -->
+        <div class="relative pl-12 md:pl-0 md:w-1/2 md:pr-12 md:ml-auto">
+          <div class="absolute left-2.5 md:left-auto md:-left-3 top-1 w-3 h-3 rounded-full bg-blue-500 ring-4 ring-blue-100 dark:ring-blue-900/50"></div>
+          <div class="bg-gray-50 dark:bg-gray-700 rounded-2xl p-6 shadow-sm">
+            <span class="text-sm text-blue-600 dark:text-blue-400 font-medium">2018.06 - 2019.12</span>
+            <h3 class="text-lg font-bold mt-1">(주) 웹에이전시</h3>
+            <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">주니어 웹 개발자</p>
+            <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1.5 list-disc list-inside">
+              <li>기업 웹사이트 및 랜딩 페이지 개발</li>
+              <li>반응형 웹 디자인 구현</li>
+              <li>jQuery에서 React로 마이그레이션 참여</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 프로젝트 (Projects) -->
+  <section id="projects" class="py-16 px-4">
+    <div class="max-w-5xl mx-auto fade-in">
+      <h2 class="text-3xl font-bold mb-8 text-center">프로젝트</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- 프로젝트 카드 1 -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+          <img src="https://picsum.photos/seed/project1/600/400" alt="태스크 매니저 앱" class="h-48 w-full object-cover">
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">태스크 매니저 앱</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">React와 Node.js로 구축한 팀 협업용 태스크 관리 웹 애플리케이션. 실시간 알림과 드래그 앤 드롭을 지원합니다.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2.5 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs rounded-full">React</span>
+              <span class="px-2.5 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs rounded-full">Node.js</span>
+              <span class="px-2.5 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs rounded-full">MongoDB</span>
+            </div>
+            <div class="flex gap-3 text-sm">
+              <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">GitHub</a>
+              <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">데모</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 프로젝트 카드 2 -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+          <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+            <span class="text-white text-4xl">&#127760;</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">날씨 대시보드</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">OpenWeather API를 활용한 실시간 날씨 정보 대시보드. 지역별 날씨와 주간 예보를 시각화합니다.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2.5 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs rounded-full">TypeScript</span>
+              <span class="px-2.5 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs rounded-full">Next.js</span>
+              <span class="px-2.5 py-0.5 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-xs rounded-full">Chart.js</span>
+            </div>
+            <div class="flex gap-3 text-sm">
+              <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">GitHub</a>
+              <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">데모</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 프로젝트 카드 3 -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+          <div class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+            <span class="text-white text-4xl">&#128214;</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">기술 블로그 플랫폼</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">마크다운 기반의 기술 블로그 플랫폼. SSR과 정적 생성을 활용하여 빠른 로딩 속도를 제공합니다.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2.5 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs rounded-full">Next.js</span>
+              <span class="px-2.5 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs rounded-full">MDX</span>
+              <span class="px-2.5 py-0.5 bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 text-xs rounded-full">Tailwind</span>
+            </div>
+            <div class="flex gap-3 text-sm">
+              <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">GitHub</a>
+              <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">데모</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 학력 (Education) -->
+  <section id="education" class="py-16 px-4 bg-white dark:bg-gray-800">
+    <div class="max-w-5xl mx-auto fade-in">
+      <h2 class="text-3xl font-bold mb-8 text-center">학력</h2>
+      <div class="space-y-6 max-w-2xl mx-auto">
+        <div class="flex items-start gap-4 bg-gray-50 dark:bg-gray-700 rounded-2xl p-6 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg">한국대학교</h3>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">컴퓨터공학과 학사</p>
+            <p class="text-gray-400 dark:text-gray-500 text-sm mt-1">2014.03 - 2018.02</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 연락처 (Contact) -->
+  <section id="contact" class="py-16 px-4">
+    <div class="max-w-5xl mx-auto fade-in">
+      <h2 class="text-3xl font-bold mb-4 text-center">연락처</h2>
+      <p class="text-center text-gray-500 dark:text-gray-400 mb-8">프로젝트 협업이나 채용 관련 문의를 환영합니다.</p>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <!-- 연락 정보 -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-4 bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
+            <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm text-gray-500 dark:text-gray-400">이메일</p>
+              <p class="font-medium">hello@example.com</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
+            <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm text-gray-500 dark:text-gray-400">전화번호</p>
+              <p class="font-medium">010-1234-5678</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
+            <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm text-gray-500 dark:text-gray-400">위치</p>
+              <p class="font-medium">서울특별시, 대한민국</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 연락 폼 -->
+        <form id="contact-form" class="space-y-4">
+          <div>
+            <label for="name" class="block text-sm font-medium mb-1">이름</label>
+            <input type="text" id="name" name="name" placeholder="홍길동"
+                   class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all">
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium mb-1">이메일</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com"
+                   class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all">
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium mb-1">메시지</label>
+            <textarea id="message" name="message" rows="4" placeholder="메시지를 입력하세요..."
+                      class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none"></textarea>
+          </div>
+          <button type="submit"
+                  class="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl transition-colors duration-300">
+            보내기
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer class="py-8 px-4 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+    <div class="max-w-5xl mx-auto text-center text-sm text-gray-500 dark:text-gray-400">
+      <p>&copy; 2026 홍길동. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- 맨 위로 이동 버튼 -->
+  <button id="scroll-top" aria-label="맨 위로 이동"
+          class="fixed bottom-6 right-6 w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 pointer-events-none translate-y-4">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"/>
+    </svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
